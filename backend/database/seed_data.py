@@ -10,7 +10,7 @@ from database.connection import get_db
 
 def seed_database():
     db = get_db()
-    print(f"🌱 Seeding sample data into '{db.name}'...")
+    print(f"🌱 Seeding Indian sample data into '{db.name}'...")
 
     # Clear existing data
     db.users.delete_many({})
@@ -24,7 +24,7 @@ def seed_database():
     hashed_password = generate_password_hash("password123")
 
     # ==========================================================================
-    # 1. USERS
+    # 1. USERS (INDIAN IDENTITIES)
     # ==========================================================================
     admin_id = ObjectId()
     donor1_id = ObjectId()
@@ -41,134 +41,134 @@ def seed_database():
     users = [
         {
             "_id": admin_id,
-            "name": "Sarah Connor (Admin)",
+            "name": "Vikram Malhotra (Admin)",
             "email": "admin@foodrescue.org",
             "passwordHash": hashed_password,
             "role": "admin",
-            "phone": "+1-555-0100",
-            "address": "100 Civic Center Plaza, Metro City",
+            "phone": "+91-98100-11223",
+            "address": "102, Connaught Place, New Delhi",
             "createdAt": now - timedelta(days=60),
             "isActive": True
         },
         # Donors
         {
             "_id": donor1_id,
-            "name": "Fresh Bites Bistro",
-            "email": "donor1@freshbites.com",
+            "name": "Annapurna Grand Restaurant",
+            "email": "donor1@annapurna.in",
             "passwordHash": hashed_password,
             "role": "donor",
-            "phone": "+1-555-0101",
-            "address": "142 Market Street, Downtown",
+            "phone": "+91-98490-12345",
+            "address": "45, MG Road, Indiranagar, Bengaluru",
             "createdAt": now - timedelta(days=45),
             "isActive": True
         },
         {
             "_id": donor2_id,
-            "name": "Campus Central Dining",
-            "email": "donor2@campusdining.edu",
+            "name": "Campus Central Dining Hall (IIT Campus)",
+            "email": "donor2@campusdining.edu.in",
             "passwordHash": hashed_password,
             "role": "donor",
-            "phone": "+1-555-0102",
-            "address": "800 University Way, West Campus",
+            "phone": "+91-98201-23456",
+            "address": "Hostel Mess Block 4, IIT Powai, Mumbai",
             "createdAt": now - timedelta(days=30),
             "isActive": True
         },
         {
             "_id": donor3_id,
-            "name": "Artisan Crust Bakery",
-            "email": "donor3@artisanbakery.com",
+            "name": "Bawarchi & Royal Banquet Caterers",
+            "email": "donor3@royalbanquets.in",
             "passwordHash": hashed_password,
             "role": "donor",
-            "phone": "+1-555-0103",
-            "address": "55 Baker Lane, Old Town",
+            "phone": "+91-98765-34567",
+            "address": "12, Banjara Hills Road No. 1, Hyderabad",
             "createdAt": now - timedelta(days=20),
             "isActive": True
         },
-        # NGOs
+        # NGOs / Shelters
         {
             "_id": ngo1_user_id,
-            "name": "Hope Community Kitchen",
-            "email": "ngo1@hopekitchen.org",
+            "name": "Roti Bank Seva Trust",
+            "email": "ngo1@rotibank.org",
             "passwordHash": hashed_password,
             "role": "ngo",
-            "phone": "+1-555-0201",
-            "address": "312 Shelter Ave, East District",
+            "phone": "+91-98111-45678",
+            "address": "88, Seva Kendra Marg, Shivajinagar, Bengaluru",
             "createdAt": now - timedelta(days=40),
             "isActive": True
         },
         {
             "_id": ngo2_user_id,
-            "name": "City Night Shelter",
-            "email": "ngo2@cityshelter.org",
+            "name": "Akshaya Aahar Night Shelter",
+            "email": "ngo2@akshayashelter.org",
             "passwordHash": hashed_password,
             "role": "ngo",
-            "phone": "+1-555-0202",
-            "address": "77 Beacon Street, Southside",
+            "phone": "+91-98222-56789",
+            "address": "104, Station Road, Dadar West, Mumbai",
             "createdAt": now - timedelta(days=25),
             "isActive": True
         },
         {
             "_id": ngo3_user_id,
-            "name": "Youth Outreach Haven",
-            "email": "ngo3@youthcare.org",
+            "name": "Annakshetra Youth Foundation",
+            "email": "ngo3@annakshetra.org",
             "passwordHash": hashed_password,
             "role": "ngo",
-            "phone": "+1-555-0203",
-            "address": "404 North Boulevard, North District",
+            "phone": "+91-98333-67890",
+            "address": "23, Sultan Bazar, Koti, Hyderabad",
             "createdAt": now - timedelta(days=5),
             "isActive": True
         },
-        # Volunteers
+        # Volunteer Couriers
         {
             "_id": vol1_id,
-            "name": "Alex Rivera",
+            "name": "Aarav Sharma",
             "email": "volunteer1@foodrescue.org",
             "passwordHash": hashed_password,
             "role": "volunteer",
-            "phone": "+1-555-0301",
-            "address": "22 Oak Ridge Lane, Midtown",
+            "phone": "+91-98450-78901",
+            "address": "14, 5th Cross, Koramangala, Bengaluru",
             "createdAt": now - timedelta(days=35),
             "isActive": True
         },
         {
             "_id": vol2_id,
-            "name": "Sam Chen",
+            "name": "Rohan Verma",
             "email": "volunteer2@foodrescue.org",
             "passwordHash": hashed_password,
             "role": "volunteer",
-            "phone": "+1-555-0302",
-            "address": "89 Pine Street, Downtown",
+            "phone": "+91-98660-89012",
+            "address": "52, Bandra Kurla Complex, Mumbai",
             "createdAt": now - timedelta(days=25),
             "isActive": True
         },
         {
             "_id": vol3_id,
-            "name": "Jordan Taylor",
+            "name": "Sneha Kulkarni",
             "email": "volunteer3@foodrescue.org",
             "passwordHash": hashed_password,
             "role": "volunteer",
-            "phone": "+1-555-0303",
-            "address": "504 Maple Avenue, Westside",
+            "phone": "+91-98770-90123",
+            "address": "71, Jubilee Hills, Hyderabad",
             "createdAt": now - timedelta(days=15),
             "isActive": True
         },
         {
             "_id": vol4_id,
-            "name": "Morgan Davis",
+            "name": "Aditya Reddy",
             "email": "volunteer4@foodrescue.org",
             "passwordHash": hashed_password,
             "role": "volunteer",
-            "phone": "+1-555-0304",
-            "address": "12 Harbor View, East District",
+            "phone": "+91-98880-01234",
+            "address": "9, Gachibowli Ring Road, Hyderabad",
             "createdAt": now - timedelta(days=3),
             "isActive": True
         }
     ]
     db.users.insert_many(users)
-    print(f"  ✅ Inserted {len(users)} users.")
+    print(f"  ✅ Inserted {len(users)} Indian users.")
 
     # ==========================================================================
-    # 2. ORGANIZATIONS
+    # 2. ORGANIZATIONS (INDIAN SHELTERS & RO TI BANKS)
     # ==========================================================================
     ngo1_org_id = ObjectId()
     ngo2_org_id = ObjectId()
@@ -178,33 +178,33 @@ def seed_database():
         {
             "_id": ngo1_org_id,
             "userId": ngo1_user_id,
-            "organizationName": "Hope Community Kitchen",
+            "organizationName": "Roti Bank Seva Trust",
             "organizationType": "Community Kitchen & Food Pantry",
-            "serviceArea": "East District & Metro Central",
+            "serviceArea": "Indiranagar & East Bengaluru",
             "verificationStatus": "verified",
             "createdAt": now - timedelta(days=40)
         },
         {
             "_id": ngo2_org_id,
             "userId": ngo2_user_id,
-            "organizationName": "City Night Shelter",
-            "organizationType": "Emergency Homeless Shelter",
-            "serviceArea": "Southside & Downtown",
+            "organizationName": "Akshaya Aahar Night Shelter",
+            "organizationType": "Emergency Homeless Shelter & Kitchen",
+            "serviceArea": "Dadar & Central Mumbai",
             "verificationStatus": "verified",
             "createdAt": now - timedelta(days=25)
         },
         {
             "_id": ngo3_org_id,
             "userId": ngo3_user_id,
-            "organizationName": "Youth Outreach Haven",
-            "organizationType": "Youth Support Center",
-            "serviceArea": "North District",
+            "organizationName": "Annakshetra Youth Foundation",
+            "organizationType": "Youth Support & Nutrition Centre",
+            "serviceArea": "Old City & Charminar, Hyderabad",
             "verificationStatus": "pending",
             "createdAt": now - timedelta(days=5)
         }
     ]
     db.organizations.insert_many(organizations)
-    print(f"  ✅ Inserted {len(organizations)} organizations.")
+    print(f"  ✅ Inserted {len(organizations)} Indian organizations.")
 
     # ==========================================================================
     # 3. VOLUNTEER PROFILES
@@ -212,7 +212,7 @@ def seed_database():
     volunteer_profiles = [
         {
             "userId": vol1_id,
-            "serviceArea": "Downtown & East District",
+            "serviceArea": "Indiranagar & Koramangala, Bengaluru",
             "availability": "available",
             "transportType": "car",
             "transportCapacityKg": 50.0,
@@ -224,7 +224,7 @@ def seed_database():
         },
         {
             "userId": vol2_id,
-            "serviceArea": "Downtown & Southside",
+            "serviceArea": "Bandra & Dadar, Mumbai",
             "availability": "busy",
             "transportType": "motorcycle",
             "transportCapacityKg": 25.0,
@@ -236,7 +236,7 @@ def seed_database():
         },
         {
             "userId": vol3_id,
-            "serviceArea": "Westside & Campus",
+            "serviceArea": "Banjara Hills & Jubilee Hills, Hyderabad",
             "availability": "available",
             "transportType": "bicycle",
             "transportCapacityKg": 15.0,
@@ -248,7 +248,7 @@ def seed_database():
         },
         {
             "userId": vol4_id,
-            "serviceArea": "Metro Wide",
+            "serviceArea": "Hitec City & Gachibowli, Hyderabad",
             "availability": "available",
             "transportType": "van",
             "transportCapacityKg": 150.0,
@@ -263,20 +263,20 @@ def seed_database():
     print(f"  ✅ Inserted {len(volunteer_profiles)} volunteer profiles.")
 
     # ==========================================================================
-    # 4. COMPLETED HISTORICAL DONATIONS & DELIVERIES (Rescued Food)
+    # 4. COMPLETED HISTORICAL DONATIONS & DELIVERIES (INDIAN FOOD RESCUES)
     # ==========================================================================
     h_donations = [
         {
             "_id": ObjectId(),
             "donorId": donor1_id,
-            "foodName": "Fresh Mediterranean Vegetable Bowls",
+            "foodName": "Hyderabadi Vegetable Dum Biryani & Mirchi Ka Salan",
             "category": "Cooked Meals",
             "quantityKg": 25.0,
             "preparedAt": now - timedelta(days=12, hours=3),
             "availableUntil": now - timedelta(days=11, hours=20),
-            "pickupAddress": "142 Market Street, Downtown",
-            "dietaryInfo": ["Vegetarian", "Gluten-Free"],
-            "description": "50 packed lunch containers of roast veggies, hummus, and quinoa.",
+            "pickupAddress": "45, MG Road, Indiranagar, Bengaluru",
+            "dietaryInfo": ["Pure Vegetarian", "Halal Certified"],
+            "description": "50 large foil containers of fragrant vegetable basmati biryani with spicy salan.",
             "status": "delivered",
             "createdAt": now - timedelta(days=12, hours=4),
             "updatedAt": now - timedelta(days=12)
@@ -284,14 +284,14 @@ def seed_database():
         {
             "_id": ObjectId(),
             "donorId": donor3_id,
-            "foodName": "Artisan Sourdough & Baguettes",
+            "foodName": "Fresh Tawa Rotis & Butter Naan",
             "category": "Bakery & Bread",
             "quantityKg": 18.5,
             "preparedAt": now - timedelta(days=8, hours=5),
             "availableUntil": now - timedelta(days=7),
-            "pickupAddress": "55 Baker Lane, Old Town",
-            "dietaryInfo": ["Vegetarian", "Dairy-Free"],
-            "description": "Surplus freshly baked sourdough boules and crispy whole-grain baguettes.",
+            "pickupAddress": "12, Banjara Hills Road No. 1, Hyderabad",
+            "dietaryInfo": ["Pure Vegetarian", "Jain Friendly"],
+            "description": "Freshly made whole wheat rotis and soft tandoori naans packed in thermal food boxes.",
             "status": "delivered",
             "createdAt": now - timedelta(days=8, hours=6),
             "updatedAt": now - timedelta(days=8, hours=1)
@@ -299,14 +299,14 @@ def seed_database():
         {
             "_id": ObjectId(),
             "donorId": donor2_id,
-            "foodName": "Crisp Farm Apples & Organic Carrots",
+            "foodName": "Fresh Shimla Apples & Nagpur Oranges",
             "category": "Fresh Produce",
             "quantityKg": 40.0,
             "preparedAt": now - timedelta(days=5, hours=2),
             "availableUntil": now - timedelta(days=3),
-            "pickupAddress": "800 University Way, West Campus",
-            "dietaryInfo": ["Vegan", "Organic"],
-            "description": "Fresh, unbruised fruit and root vegetables packed in 4 sturdy crates.",
+            "pickupAddress": "Hostel Mess Block 4, IIT Powai, Mumbai",
+            "dietaryInfo": ["Pure Vegetarian", "Organic"],
+            "description": "Crisp seasonal fruit packed in 4 ventilated wooden crates from campus dining.",
             "status": "delivered",
             "createdAt": now - timedelta(days=5, hours=3),
             "updatedAt": now - timedelta(days=5)
@@ -314,14 +314,14 @@ def seed_database():
         {
             "_id": ObjectId(),
             "donorId": donor1_id,
-            "foodName": "Greek Yogurt & Pasteurized Milk",
+            "foodName": "Amul Pasteurized Milk & Fresh Curd (Dahi)",
             "category": "Dairy Products",
             "quantityKg": 15.0,
             "preparedAt": now - timedelta(days=2, hours=8),
             "availableUntil": now - timedelta(days=1, hours=12),
-            "pickupAddress": "142 Market Street, Downtown",
-            "dietaryInfo": ["Contains Dairy", "Vegetarian"],
-            "description": "Chilled sealed dairy cartons kept refrigerated at 3°C.",
+            "pickupAddress": "45, MG Road, Indiranagar, Bengaluru",
+            "dietaryInfo": ["Contains Dairy", "Pure Vegetarian"],
+            "description": "Chilled sealed pouches of Amul Taaza milk and fresh homestyle curd kept refrigerated at 4°C.",
             "status": "delivered",
             "createdAt": now - timedelta(days=2, hours=9),
             "updatedAt": now - timedelta(days=2, hours=4)
@@ -329,7 +329,6 @@ def seed_database():
     ]
     db.donations.insert_many(h_donations)
 
-    # Insert corresponding requests & delivery tasks for historical rescues
     vols = [vol1_id, vol2_id, vol1_id, vol3_id]
     ngos = [ngo1_org_id, ngo2_org_id, ngo1_org_id, ngo2_org_id]
 
@@ -359,22 +358,22 @@ def seed_database():
         })
 
     # ==========================================================================
-    # 5. ACTIVE & IN-PROGRESS DONATIONS
+    # 5. ACTIVE & IN-PROGRESS INDIAN DONATIONS
     # ==========================================================================
-    # A) In-progress donation: Picked up by Vol 1, en route to Hope Kitchen
+    # A) In-progress donation: Picked up by Aarav Sharma, en route to Roti Bank
     ip_don1_id = ObjectId()
     ip_req1_id = ObjectId()
     db.donations.insert_one({
         "_id": ip_don1_id,
         "donorId": donor1_id,
-        "foodName": "Gourmet Sandwiches & Pasta Salad",
+        "foodName": "Dal Makhani, Shahi Paneer & Jeera Rice",
         "category": "Cooked Meals",
         "quantityKg": 16.0,
         "preparedAt": now - timedelta(hours=2),
         "availableUntil": now + timedelta(hours=6),
-        "pickupAddress": "142 Market Street, Downtown",
-        "dietaryInfo": ["Vegetarian Options", "Nut-Free"],
-        "description": "Individually wrapped roast vegetable and cheese focaccias.",
+        "pickupAddress": "45, MG Road, Indiranagar, Bengaluru",
+        "dietaryInfo": ["Pure Vegetarian", "North Indian"],
+        "description": "Insulated stainless steel containers with rich dal makhani, shahi paneer and jeera rice.",
         "status": "picked_up",
         "createdAt": now - timedelta(hours=3),
         "updatedAt": now - timedelta(minutes=30)
@@ -401,20 +400,20 @@ def seed_database():
         "createdAt": now - timedelta(hours=1, minutes=45)
     })
 
-    # B) In-progress donation: Accepted by Vol 2, volunteer en route to pickup
+    # B) In-progress donation: Accepted by Rohan Verma, en route to Akshaya Aahar
     ip_don2_id = ObjectId()
     ip_req2_id = ObjectId()
     db.donations.insert_one({
         "_id": ip_don2_id,
         "donorId": donor2_id,
-        "foodName": "Steamed Rice & Lentil Curry",
+        "foodName": "Idli, Medu Vada, Sambar & Coconut Chutney",
         "category": "Cooked Meals",
         "quantityKg": 22.0,
         "preparedAt": now - timedelta(hours=1),
         "availableUntil": now + timedelta(hours=5),
-        "pickupAddress": "800 University Way, West Campus",
-        "dietaryInfo": ["Vegan", "Gluten-Free", "Halal"],
-        "description": "Hot insulated food warmers filled with freshly prepared dal and basmati rice.",
+        "pickupAddress": "Hostel Mess Block 4, IIT Powai, Mumbai",
+        "dietaryInfo": ["Pure Vegetarian", "South Indian", "Jain Friendly"],
+        "description": "Fresh morning breakfast batch of steamed idlis, crispy medu vadas, and hot sambar.",
         "status": "assigned",
         "createdAt": now - timedelta(hours=2),
         "updatedAt": now - timedelta(minutes=15)
@@ -447,14 +446,14 @@ def seed_database():
     db.donations.insert_one({
         "_id": ip_don3_id,
         "donorId": donor3_id,
-        "foodName": "Fresh Butter Croissants & Brioche",
+        "foodName": "Mumbai Ladi Pav & Fresh Whole Wheat Buns",
         "category": "Bakery & Bread",
         "quantityKg": 14.0,
         "preparedAt": now - timedelta(hours=3),
         "availableUntil": now + timedelta(hours=10),
-        "pickupAddress": "55 Baker Lane, Old Town",
-        "dietaryInfo": ["Vegetarian"],
-        "description": "Unsold morning batch of premium pastries in bakery carry boxes.",
+        "pickupAddress": "12, Banjara Hills Road No. 1, Hyderabad",
+        "dietaryInfo": ["Pure Vegetarian", "Eggless"],
+        "description": "Fresh evening surplus bakery batch of soft ladi pav and buns in clean carry crates.",
         "status": "requested",
         "createdAt": now - timedelta(hours=3),
         "updatedAt": now - timedelta(hours=1)
@@ -482,61 +481,61 @@ def seed_database():
     })
 
     # ==========================================================================
-    # 6. AVAILABLE DONATIONS (Open for NGO requests)
+    # 6. AVAILABLE INDIAN DONATIONS (Open for NGO requests)
     # ==========================================================================
     available_donations = [
         {
             "donorId": donor2_id,
-            "foodName": "Organic Mixed Greens & Bell Peppers",
+            "foodName": "Organic Palak, Methi Greens & Desi Tomatoes",
             "category": "Fresh Produce",
             "quantityKg": 32.0,
             "preparedAt": now - timedelta(hours=4),
             "availableUntil": now + timedelta(days=2),
-            "pickupAddress": "800 University Way, West Campus",
-            "dietaryInfo": ["Vegan", "Organic"],
-            "description": "Crisp salad greens, spinach, and red/yellow bell peppers from agriculture greenhouse.",
+            "pickupAddress": "Hostel Mess Block 4, IIT Powai, Mumbai",
+            "dietaryInfo": ["Pure Vegetarian", "Organic"],
+            "description": "Fresh unbruised leafy vegetables and farm tomatoes harvested this morning.",
             "status": "available",
             "createdAt": now - timedelta(hours=4),
             "updatedAt": now - timedelta(hours=4)
         },
         {
             "donorId": donor1_id,
-            "foodName": "Packaged Whole Grain Penne & Tomato Sauce",
+            "foodName": "Fortune Basmati Rice & Tata Sampann Toor Dal Packs",
             "category": "Packaged Goods",
             "quantityKg": 50.0,
             "preparedAt": now - timedelta(days=1),
             "availableUntil": now + timedelta(days=14),
-            "pickupAddress": "142 Market Street, Downtown",
-            "dietaryInfo": ["Vegetarian", "Shelf-Stable"],
-            "description": "Sealed commercial food service cases of pasta and canned crushed plum tomatoes.",
+            "pickupAddress": "45, MG Road, Indiranagar, Bengaluru",
+            "dietaryInfo": ["Pure Vegetarian", "Shelf-Stable"],
+            "description": "Sealed commercial food service bags of 1121 basmati rice and unpolished toor dal.",
             "status": "available",
             "createdAt": now - timedelta(hours=5),
             "updatedAt": now - timedelta(hours=5)
         },
         {
             "donorId": donor3_id,
-            "foodName": "Artisanal Multigrain Loaves & Muffins",
+            "foodName": "Gulab Jamun & Besan Ladoos (Sweet Box Surplus)",
             "category": "Bakery & Bread",
             "quantityKg": 12.0,
             "preparedAt": now - timedelta(hours=2),
             "availableUntil": now + timedelta(hours=18),
-            "pickupAddress": "55 Baker Lane, Old Town",
-            "dietaryInfo": ["Vegetarian", "Nut-Free"],
-            "description": "High fiber loaf loaves and blueberry bran muffins.",
+            "pickupAddress": "12, Banjara Hills Road No. 1, Hyderabad",
+            "dietaryInfo": ["Pure Vegetarian", "Desi Ghee"],
+            "description": "Fresh festival sweet boxes packed in hygienic air-tight gift containers.",
             "status": "available",
             "createdAt": now - timedelta(hours=2),
             "updatedAt": now - timedelta(hours=2)
         },
         {
             "donorId": donor1_id,
-            "foodName": "Fresh Fruit Juices & Cold Brew Coffee",
+            "foodName": "Fresh Masala Buttermilk (Chaas) & Mango Lassi",
             "category": "Beverages",
             "quantityKg": 20.0,
             "preparedAt": now - timedelta(hours=6),
             "availableUntil": now + timedelta(days=1),
-            "pickupAddress": "142 Market Street, Downtown",
-            "dietaryInfo": ["Vegan", "Gluten-Free"],
-            "description": "Sealed bottles of cold-pressed orange and green juices kept chilled.",
+            "pickupAddress": "45, MG Road, Indiranagar, Bengaluru",
+            "dietaryInfo": ["Pure Vegetarian", "Contains Dairy"],
+            "description": "Chilled bottles of refreshing cumin spiced chaas and sweet mango lassi in ice boxes.",
             "status": "available",
             "createdAt": now - timedelta(hours=6),
             "updatedAt": now - timedelta(hours=6)
@@ -546,7 +545,7 @@ def seed_database():
 
     print(f"  ✅ Inserted {len(h_donations) + 3 + len(available_donations)} total donations.")
     print(f"  ✅ Inserted donation requests and delivery tasks.")
-    print(f"\n🎉 Database '{db.name}' successfully seeded with realistic sample data!")
+    print(f"\n🎉 Database '{db.name}' successfully seeded with realistic Indian sample data!")
 
 if __name__ == "__main__":
     seed_database()

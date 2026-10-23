@@ -13,7 +13,7 @@ export default function AuthModal({ isOpen, onClose, initialMode = 'login', defa
     phone: '',
     address: '',
     organizationName: '',
-    organizationType: 'Community Kitchen',
+    organizationType: 'Community Kitchen & Food Pantry',
     serviceArea: '',
     transportType: 'car',
     transportCapacityKg: 25
@@ -66,7 +66,7 @@ export default function AuthModal({ isOpen, onClose, initialMode = 'login', defa
         <div className="bg-gradient-to-r from-brand-700 to-brand-600 px-6 py-5 text-white flex justify-between items-center">
           <div>
             <h3 className="text-lg font-bold">
-              {isRegister ? 'Join FoodRescue' : 'Welcome Back'}
+              {isRegister ? 'Join FoodRescue India' : 'Welcome Back'}
             </h3>
             <p className="text-xs text-brand-100">
               {isRegister ? 'Create an account to begin rescuing food' : 'Sign in to access your portal'}
@@ -150,7 +150,7 @@ export default function AuthModal({ isOpen, onClose, initialMode = 'login', defa
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="e.g. Sarah Jenkins"
+                      placeholder="e.g. Rahul Sharma"
                       className="w-full pl-9 pr-3 py-2 text-xs border border-warm-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none"
                     />
                   </div>
@@ -166,7 +166,7 @@ export default function AuthModal({ isOpen, onClose, initialMode = 'login', defa
                         required
                         value={formData.organizationName}
                         onChange={handleChange}
-                        placeholder="e.g. Hope Community Kitchen"
+                        placeholder="e.g. Roti Bank Seva Trust"
                         className="w-full pl-9 pr-3 py-2 text-xs border border-warm-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none"
                       />
                     </div>
@@ -185,7 +185,7 @@ export default function AuthModal({ isOpen, onClose, initialMode = 'login', defa
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="e.g. sarah@example.com"
+                  placeholder="e.g. rahul.sharma@example.in"
                   className="w-full pl-9 pr-3 py-2 text-xs border border-warm-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none"
                 />
               </div>
@@ -211,22 +211,22 @@ export default function AuthModal({ isOpen, onClose, initialMode = 'login', defa
               <>
                 <div className="grid grid-cols-2 gap-2">
                   <div>
-                    <label className="block text-xs font-medium text-warm-700 mb-1">Phone</label>
+                    <label className="block text-xs font-medium text-warm-700 mb-1">Mobile (+91)</label>
                     <input
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="+1-555-0199"
+                      placeholder="+91-98765-43210"
                       className="w-full px-3 py-2 text-xs border border-warm-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-warm-700 mb-1">Address / City Zone</label>
+                    <label className="block text-xs font-medium text-warm-700 mb-1">Location / Area</label>
                     <input
                       name="address"
                       value={formData.address}
                       onChange={handleChange}
-                      placeholder="Downtown District"
+                      placeholder="Indiranagar, Bengaluru"
                       className="w-full px-3 py-2 text-xs border border-warm-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none"
                     />
                   </div>
@@ -277,7 +277,7 @@ export default function AuthModal({ isOpen, onClose, initialMode = 'login', defa
           <div className="mt-5 pt-4 border-t border-warm-200">
             <div className="flex items-center space-x-1.5 text-xs font-bold text-warm-600 mb-2.5">
               <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-              <span>1-Click Academic Demo Logins</span>
+              <span>1-Click Indian Demo Logins</span>
             </div>
             <div className="grid grid-cols-2 gap-2">
               <button
@@ -289,7 +289,7 @@ export default function AuthModal({ isOpen, onClose, initialMode = 'login', defa
                   <ShieldCheck className="w-3 h-3 text-purple-600" />
                   <span>Admin</span>
                 </div>
-                <div className="text-[10px] text-warm-500">Sarah Connor</div>
+                <div className="text-[10px] text-warm-500">Vikram Malhotra</div>
               </button>
 
               <button
@@ -301,7 +301,7 @@ export default function AuthModal({ isOpen, onClose, initialMode = 'login', defa
                   <Utensils className="w-3 h-3 text-brand-600" />
                   <span>Donor</span>
                 </div>
-                <div className="text-[10px] text-warm-500">Fresh Bites Bistro</div>
+                <div className="text-[10px] text-warm-500">Annapurna Grand</div>
               </button>
 
               <button
@@ -313,7 +313,7 @@ export default function AuthModal({ isOpen, onClose, initialMode = 'login', defa
                   <Building2 className="w-3 h-3 text-blue-600" />
                   <span>NGO / Shelter</span>
                 </div>
-                <div className="text-[10px] text-warm-500">Hope Kitchen</div>
+                <div className="text-[10px] text-warm-500">Roti Bank Seva</div>
               </button>
 
               <button
@@ -325,7 +325,7 @@ export default function AuthModal({ isOpen, onClose, initialMode = 'login', defa
                   <Truck className="w-3 h-3 text-amber-600" />
                   <span>Volunteer</span>
                 </div>
-                <div className="text-[10px] text-warm-500">Alex Rivera (Courier)</div>
+                <div className="text-[10px] text-warm-500">Aarav Sharma (Courier)</div>
               </button>
             </div>
           </div>

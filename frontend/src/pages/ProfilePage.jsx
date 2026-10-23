@@ -138,7 +138,7 @@ export default function ProfilePage() {
                 <input
                   value={formData.serviceArea}
                   onChange={(e) => setFormData({ ...formData, serviceArea: e.target.value })}
-                  placeholder="e.g. Downtown & East District"
+                  placeholder="e.g. Indiranagar & Koramangala, Bengaluru"
                   className="w-full px-3 py-2 text-xs border border-warm-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none"
                 />
               </div>

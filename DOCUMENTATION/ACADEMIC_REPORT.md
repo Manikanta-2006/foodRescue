@@ -110,12 +110,12 @@ Represents platform actors across all 4 roles.
 ```json
 {
   "_id": {"$oid": "67b8a1c8eade8b15ce82df54"},
-  "name": "Fresh Bites Bistro",
-  "email": "donor1@freshbites.com",
+  "name": "Annapurna Grand Restaurant",
+  "email": "donor1@annapurna.in",
   "passwordHash": "pbkdf2:sha256:...",
   "role": "donor",
-  "phone": "+1-555-0101",
-  "address": "142 Market Street, Downtown",
+  "phone": "+91-98490-12345",
+  "address": "45, MG Road, Indiranagar, Bengaluru",
   "createdAt": {"$date": "2026-09-07T13:22:00Z"},
   "isActive": true
 }
@@ -127,9 +127,9 @@ Profiles registered NGOs, shelters, and community kitchens.
 {
   "_id": {"$oid": "67b8a1c8eade8b15ce82df57"},
   "userId": {"$oid": "67b8a1c8eade8b15ce82df55"},
-  "organizationName": "Hope Community Kitchen",
+  "organizationName": "Roti Bank Seva Trust",
   "organizationType": "Community Kitchen & Food Pantry",
-  "serviceArea": "East District & Metro Central",
+  "serviceArea": "Indiranagar & East Bengaluru",
   "verificationStatus": "verified",
   "createdAt": {"$date": "2026-09-12T13:22:00Z"}
 }
@@ -141,14 +141,14 @@ Surplus food lots created by commercial dining kitchens.
 {
   "_id": {"$oid": "67b8a1c8eade8b15ce82df60"},
   "donorId": {"$oid": "67b8a1c8eade8b15ce82df54"},
-  "foodName": "Fresh Mediterranean Vegetable Bowls",
+  "foodName": "Hyderabadi Vegetable Dum Biryani & Mirchi Ka Salan",
   "category": "Cooked Meals",
   "quantityKg": 25.0,
   "preparedAt": {"$date": "2026-10-10T10:15:00Z"},
   "availableUntil": {"$date": "2026-10-10T18:00:00Z"},
-  "pickupAddress": "142 Market Street, Downtown",
-  "dietaryInfo": ["Vegetarian", "Gluten-Free"],
-  "description": "50 packed lunch containers of roast veggies, hummus, and quinoa.",
+  "pickupAddress": "45, MG Road, Indiranagar, Bengaluru",
+  "dietaryInfo": ["Pure Vegetarian", "Halal Certified"],
+  "description": "50 large foil containers of fragrant vegetable basmati biryani with spicy salan.",
   "status": "delivered",
   "createdAt": {"$date": "2026-10-10T09:00:00Z"},
   "updatedAt": {"$date": "2026-10-10T14:30:00Z"}
@@ -192,7 +192,7 @@ Gamified courier telemetry, vehicle capacity, and badge milestones.
 {
   "_id": {"$oid": "67b8a1c8eade8b15ce82df75"},
   "userId": {"$oid": "67b8a1c8eade8b15ce82df58"},
-  "serviceArea": "Downtown & East District",
+  "serviceArea": "Indiranagar & Koramangala, Bengaluru",
   "availability": "available",
   "transportType": "car",
   "transportCapacityKg": 50.0,

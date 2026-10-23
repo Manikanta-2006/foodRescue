@@ -127,10 +127,10 @@ npm --prefix frontend run dev
 
 | Role | Name | Email | Initial Key Activities |
 | :--- | :--- | :--- | :--- |
-| **Admin** | Sarah Connor | `admin@foodrescue.org` | Access Recharts analytics, verify pending NGOs, audit users |
-| **Donor** | Fresh Bites Bistro | `donor1@freshbites.com` | Post surplus food, edit/cancel listings, view donated totals |
-| **NGO** | Hope Community Kitchen | `ngo1@hopekitchen.org` | Browse food, submit requests, confirm receipt of safe deliveries |
-| **Volunteer** | Alex Rivera | `volunteer1@foodrescue.org` | Accept open rescue tasks, mark picked up, print certificate |
+| **Admin** | Vikram Malhotra | `admin@foodrescue.org` | Access Recharts analytics, verify pending NGOs, audit users |
+| **Donor** | Annapurna Grand Restaurant | `donor1@annapurna.in` | Post surplus food, edit/cancel listings, view donated totals |
+| **NGO** | Roti Bank Seva Trust | `ngo1@rotibank.org` | Browse food, submit requests, confirm receipt of safe deliveries |
+| **Volunteer** | Aarav Sharma | `volunteer1@foodrescue.org` | Accept open rescue tasks, mark picked up, print certificate |
 
 *(Tip: Click the **"Demo Switcher"** button in the top navigation bar to switch accounts instantly!)*
 

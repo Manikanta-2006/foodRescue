@@ -4,10 +4,10 @@ import { api } from '../api/client';
 const AuthContext = createContext(null);
 
 export const DEMO_CREDENTIALS = {
-  admin: { email: 'admin@foodrescue.org', password: 'password123', label: 'Admin (Sarah Connor)' },
-  donor: { email: 'donor1@freshbites.com', password: 'password123', label: 'Donor (Fresh Bites Bistro)' },
-  ngo: { email: 'ngo1@hopekitchen.org', password: 'password123', label: 'NGO (Hope Kitchen)' },
-  volunteer: { email: 'volunteer1@foodrescue.org', password: 'password123', label: 'Volunteer (Alex Rivera)' },
+  admin: { email: 'admin@foodrescue.org', password: 'password123', label: 'Admin (Vikram Malhotra)' },
+  donor: { email: 'donor1@annapurna.in', password: 'password123', label: 'Donor (Annapurna Grand)' },
+  ngo: { email: 'ngo1@rotibank.org', password: 'password123', label: 'NGO (Roti Bank Seva Trust)' },
+  volunteer: { email: 'volunteer1@foodrescue.org', password: 'password123', label: 'Volunteer (Aarav Sharma)' },
 };
 
 export function AuthProvider({ children }) {

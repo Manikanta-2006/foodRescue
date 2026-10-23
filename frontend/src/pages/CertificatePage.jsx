@@ -85,7 +85,7 @@ export default function CertificatePage({ setCurrentView }) {
             </div>
 
             <div className="text-xs uppercase font-extrabold tracking-[0.25em] text-brand-700">
-              FoodRescue Humanitarian Initiative
+              National FoodRescue India Initiative
             </div>
 
             <h1 className="text-3xl sm:text-4xl font-extrabold text-warm-900 tracking-tight font-serif">

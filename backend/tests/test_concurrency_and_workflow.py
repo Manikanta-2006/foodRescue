@@ -16,12 +16,12 @@ def test_complete_rescue_workflow_end_to_end(client, auth_tokens):
     don_res = client.post(
         "/api/donations",
         json={
-            "foodName": "End-to-End Fresh Curry",
+            "foodName": "End-to-End Hyderabadi Paneer Pulao",
             "category": "Cooked Meals",
             "quantityKg": 20.0,
             "availableUntil": (now + timedelta(hours=10)).isoformat(),
-            "pickupAddress": "Community Hub 101",
-            "dietaryInfo": ["Vegetarian"]
+            "pickupAddress": "Community Kitchen 101, Indiranagar, Bengaluru",
+            "dietaryInfo": ["Pure Vegetarian"]
         },
         headers={"Authorization": f"Bearer {auth_tokens['donor']}"}
     )
@@ -103,11 +103,11 @@ def test_prevent_duplicate_claims_on_same_donation(client, auth_tokens):
     don_res = client.post(
         "/api/donations",
         json={
-            "foodName": "Exclusive Fruit Basket",
+            "foodName": "Fresh Alphonso Mango Crates",
             "category": "Fresh Produce",
             "quantityKg": 15.0,
             "availableUntil": (now + timedelta(hours=5)).isoformat(),
-            "pickupAddress": "Exclusive Orchard"
+            "pickupAddress": "Orchard Market, Dadar, Mumbai"
         },
         headers={"Authorization": f"Bearer {auth_tokens['donor']}"}
     )
@@ -140,11 +140,11 @@ def test_prevent_duplicate_task_acceptance(client, auth_tokens):
     don_res = client.post(
         "/api/donations",
         json={
-            "foodName": "Single Delivery Task Bread",
+            "foodName": "Fresh Tawa Roti & Paratha Batch",
             "category": "Bakery & Bread",
             "quantityKg": 10.0,
             "availableUntil": (now + timedelta(hours=6)).isoformat(),
-            "pickupAddress": "Bakery Corner"
+            "pickupAddress": "Banjara Sweets & Bakers, Hyderabad"
         },
         headers={"Authorization": f"Bearer {auth_tokens['donor']}"}
     )

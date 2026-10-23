@@ -6,13 +6,13 @@ from database.connection import get_donations_col
 def test_donor_creates_donation_successfully(client, auth_tokens):
     now = datetime.now(timezone.utc)
     payload = {
-        "foodName": "Fresh Lentil Soup",
+        "foodName": "Fresh Moong Dal & Jeera Rice",
         "category": "Cooked Meals",
         "quantityKg": 18.5,
         "availableUntil": (now + timedelta(hours=8)).isoformat(),
-        "pickupAddress": "400 Test Avenue",
-        "dietaryInfo": ["Vegan", "Gluten-Free"],
-        "description": "Hot soup stored in sealed thermals."
+        "pickupAddress": "45, MG Road, Indiranagar, Bengaluru",
+        "dietaryInfo": ["Pure Vegetarian", "Jain Friendly"],
+        "description": "Hot dal and steamed rice stored in sealed stainless steel containers."
     }
     res = client.post(
         "/api/donations",
@@ -21,7 +21,7 @@ def test_donor_creates_donation_successfully(client, auth_tokens):
     )
     assert res.status_code == 201
     data = res.get_json()
-    assert data["donation"]["foodName"] == "Fresh Lentil Soup"
+    assert data["donation"]["foodName"] == "Fresh Moong Dal & Jeera Rice"
     assert data["donation"]["status"] == "available"
     assert data["donation"]["quantityKg"] == 18.5
 
@@ -37,11 +37,11 @@ def test_update_donation_success_and_auth_check(client, auth_tokens):
     create_res = client.post(
         "/api/donations",
         json={
-            "foodName": "Initial Salad Batch",
-            "category": "Fresh Produce",
+            "foodName": "Initial Poha & Upma Batch",
+            "category": "Cooked Meals",
             "quantityKg": 12.0,
             "availableUntil": (now + timedelta(hours=6)).isoformat(),
-            "pickupAddress": "500 Green Lane"
+            "pickupAddress": "12, Banjara Hills, Hyderabad"
         },
         headers={"Authorization": f"Bearer {auth_tokens['donor']}"}
     )
@@ -58,11 +58,11 @@ def test_update_donation_success_and_auth_check(client, auth_tokens):
     # 2. Authorized edit by donor
     donor_edit = client.put(
         f"/api/donations/{donation_id}",
-        json={"foodName": "Updated Organic Salad Batch", "quantityKg": 14.5},
+        json={"foodName": "Updated Poha & Upma Breakfast Batch", "quantityKg": 14.5},
         headers={"Authorization": f"Bearer {auth_tokens['donor']}"}
     )
     assert donor_edit.status_code == 200
-    assert donor_edit.get_json()["donation"]["foodName"] == "Updated Organic Salad Batch"
+    assert donor_edit.get_json()["donation"]["foodName"] == "Updated Poha & Upma Breakfast Batch"
     assert donor_edit.get_json()["donation"]["quantityKg"] == 14.5
 
 def test_cancel_donation(client, auth_tokens):
@@ -70,11 +70,11 @@ def test_cancel_donation(client, auth_tokens):
     create_res = client.post(
         "/api/donations",
         json={
-            "foodName": "Batch To Cancel",
+            "foodName": "Surplus Naan Batch To Cancel",
             "category": "Bakery & Bread",
             "quantityKg": 8.0,
             "availableUntil": (now + timedelta(hours=3)).isoformat(),
-            "pickupAddress": "33 Bread St"
+            "pickupAddress": "88, Seva Kendra Marg, Bengaluru"
         },
         headers={"Authorization": f"Bearer {auth_tokens['donor']}"}
     )

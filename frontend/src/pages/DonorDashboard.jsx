@@ -28,12 +28,12 @@ const CATEGORIES = [
 ];
 
 const DIETARY_OPTIONS = [
-  'Vegetarian',
-  'Vegan',
-  'Halal',
+  'Pure Vegetarian',
+  'Jain (No Onion Garlic)',
+  'Halal Certified',
   'Contains Dairy',
+  'Sattvic',
   'Nut-Free',
-  'Gluten-Free',
   'Organic'
 ];
 
@@ -337,7 +337,7 @@ export default function DonorDashboard() {
                   required
                   value={formData.foodName}
                   onChange={(e) => setFormData({ ...formData, foodName: e.target.value })}
-                  placeholder="e.g. Freshly Baked Focaccia & Rolls"
+                  placeholder="e.g. Hyderabadi Veg Biryani & Mirchi Ka Salan"
                   className="w-full px-3 py-2 text-xs border border-warm-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none"
                 />
               </div>
@@ -400,7 +400,7 @@ export default function DonorDashboard() {
                   required
                   value={formData.pickupAddress}
                   onChange={(e) => setFormData({ ...formData, pickupAddress: e.target.value })}
-                  placeholder="e.g. 142 Market Street, Downtown"
+                  placeholder="e.g. 45, MG Road, Indiranagar, Bengaluru"
                   className="w-full px-3 py-2 text-xs border border-warm-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none"
                 />
               </div>
@@ -435,7 +435,7 @@ export default function DonorDashboard() {
                   rows="2"
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  placeholder="e.g. Kept in food-safe insulated warmers. Bring clean transport crates."
+                  placeholder="e.g. Insulated food warmers. Handled according to hygienic standards."
                   className="w-full px-3 py-2 text-xs border border-warm-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none"
                 />
               </div>

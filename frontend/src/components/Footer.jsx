@@ -45,7 +45,7 @@ export default function Footer() {
                 <span>Notice</span>
               </div>
               <p>
-                Platform monitors temperature tags and strict collection expiry windows. Food donations require verified recipient inspection at handoff.
+                Platform monitors temperature tags and strict collection expiry windows in accordance with FSSAI surplus food guidelines. Donations require verified recipient inspection at handoff.
               </p>
             </div>
           </div>

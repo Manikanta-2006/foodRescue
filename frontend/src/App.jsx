@@ -99,7 +99,7 @@ function AppContent() {
               <AlertCircle className="w-12 h-12 text-rose-500 mx-auto" />
               <h2 className="text-lg font-bold text-warm-900">Administrator Clearance Required</h2>
               <p className="text-xs text-warm-500">
-                This console is restricted to system administrators. Use the Demo Switcher to log in as Sarah Connor (Admin).
+                This console is restricted to system administrators. Use the Demo Switcher to log in as Vikram Malhotra (Admin).
               </p>
               <button
                 onClick={openAuth}
