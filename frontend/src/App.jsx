@@ -14,6 +14,7 @@ import CertificatePage from './pages/CertificatePage';
 import AdminDashboard from './pages/AdminDashboard';
 import ProfilePage from './pages/ProfilePage';
 import AuthModal from './pages/AuthModal';
+import AuthPage from './pages/AuthPage';
 
 import { AlertCircle, Home } from 'lucide-react';
 
@@ -21,8 +22,12 @@ function AppContent() {
   const { user, isAuthenticated, loading } = useAuth();
   const [currentView, setCurrentView] = useState('landing');
   const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [authMode, setAuthMode] = useState('login');
 
-  const openAuth = () => setAuthModalOpen(true);
+  const openAuth = (mode = 'login') => {
+    setAuthMode(mode);
+    setAuthModalOpen(true);
+  };
 
   // Render view based on state
   const renderView = () => {
@@ -131,6 +136,16 @@ function AppContent() {
     }
   };
 
+  // Dedicated Full-Screen Split View for Login / Sign Up (Exact match to reference screenshot)
+  if (currentView === 'login' || currentView === 'register') {
+    return (
+      <AuthPage
+        initialMode={currentView}
+        setCurrentView={setCurrentView}
+      />
+    );
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-warm-50">
       <Navbar
@@ -147,6 +162,7 @@ function AppContent() {
 
       <AuthModal
         isOpen={authModalOpen}
+        initialMode={authMode}
         onClose={() => setAuthModalOpen(false)}
       />
     </div>

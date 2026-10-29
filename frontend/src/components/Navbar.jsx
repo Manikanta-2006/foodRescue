@@ -227,12 +227,20 @@ export default function Navbar({ currentView, setCurrentView, onOpenAuth }) {
                 )}
               </div>
             ) : (
-              <button
-                onClick={onOpenAuth}
-                className="px-4 py-2 rounded-lg bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold shadow-sm shadow-brand-600/30 transition"
-              >
-                Sign In
-              </button>
+              <div className="flex items-center space-x-2">
+                <button
+                  onClick={() => setCurrentView('login')}
+                  className="px-3.5 py-1.5 rounded-lg text-warm-700 hover:text-warm-900 hover:bg-warm-100 text-xs font-semibold transition"
+                >
+                  Sign In
+                </button>
+                <button
+                  onClick={() => setCurrentView('register')}
+                  className="px-3.5 py-1.5 rounded-lg bg-[#00c9a7] hover:bg-[#00b395] text-white text-xs font-semibold shadow-sm shadow-teal-500/25 transition"
+                >
+                  Register
+                </button>
+              </div>
             )}
           </div>
         </div>

@@ -1,4 +1,5 @@
-from flask import Flask, jsonify
+import os
+from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS
 from config import Config
 
@@ -14,8 +15,8 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
 
-    # Enable CORS for all API endpoints
-    CORS(app, resources={r"/api/*": {"origins": "*"}})
+    # Enable CORS for all API endpoints with configurable origins
+    CORS(app, resources={r"/api/*": {"origins": Config.CORS_ORIGINS}})
 
     # Register Blueprints
     app.register_blueprint(auth_bp, url_prefix="/api/auth")
@@ -35,8 +36,23 @@ def create_app():
             "version": "1.0.0"
         }), 200
 
+    # Serve compiled React frontend assets if enabled or dist exists
+    has_dist = os.path.isdir(Config.STATIC_FOLDER) and os.path.isfile(os.path.join(Config.STATIC_FOLDER, "index.html"))
+    if Config.SERVE_STATIC or has_dist:
+        @app.route("/", defaults={"path": ""})
+        @app.route("/<path:path>")
+        def serve_frontend(path):
+            if path and os.path.exists(os.path.join(Config.STATIC_FOLDER, path)):
+                return send_from_directory(Config.STATIC_FOLDER, path)
+            return send_from_directory(Config.STATIC_FOLDER, "index.html")
+
     @app.errorhandler(404)
     def not_found(e):
+        # Fallback to SPA index.html for non-API routes if static folder exists
+        if (Config.SERVE_STATIC or has_dist):
+            from flask import request
+            if not request.path.startswith("/api/"):
+                return send_from_directory(Config.STATIC_FOLDER, "index.html")
         return jsonify({"error": "Resource not found"}), 404
 
     @app.errorhandler(500)

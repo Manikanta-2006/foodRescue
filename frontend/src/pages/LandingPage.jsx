@@ -73,7 +73,7 @@ export default function LandingPage({ setCurrentView, onOpenAuth }) {
 
             {!isAuthenticated ? (
               <button
-                onClick={onOpenAuth}
+                onClick={() => setCurrentView('login')}
                 className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/20 backdrop-blur-sm transition"
               >
                 Sign In / Join Us

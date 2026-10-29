@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodRescue - Academic Project Report (CSE494)</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+    :root {
+      --primary: #0f766e;
+      --primary-light: #14b8a6;
+      --primary-dark: #115e59;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --bg-code: #f8fafc;
+      --border: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-main);
+      background: #f1f5f9;
+      line-height: 1.65;
+      font-size: 14px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .report-container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #ffffff;
+      padding: 60px 70px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Print Button Bar */
+    .action-bar {
+      position: sticky;
+      top: 20px;
+      z-index: 100;
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .btn-print {
+      background: #0f766e;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(15, 118, 110, 0.25);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-print:hover {
+      background: #115e59;
+      transform: translateY(-1px);
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      color: #0f172a;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 26px;
+      line-height: 1.25;
+      margin-bottom: 8px;
+      text-align: center;
+      color: #0f766e;
+    }
+
+    .report-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+
+    .meta-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+      background: #f8fafc;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .meta-table td {
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .meta-label {
+      font-weight: 600;
+      color: #334155;
+      width: 30%;
+    }
+
+    h2 {
+      font-size: 18px;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 6px;
+      margin-top: 36px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    h3 {
+      font-size: 15px;
+      margin-top: 22px;
+      margin-bottom: 10px;
+      color: #1e293b;
+    }
+
+    p {
+      margin-bottom: 14px;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin-left: 24px;
+      margin-bottom: 16px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    /* Tables */
+    table.content-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0 24px;
+      font-size: 12.5px;
+    }
+
+    table.content-table th, table.content-table td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+    }
+
+    table.content-table th {
+      background: #f1f5f9;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    table.content-table tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    /* Code Blocks */
+    pre {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 14px 18px;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      line-height: 1.5;
+      overflow-x: auto;
+      margin: 14px 0 20px;
+    }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      background: #f1f5f9;
+      color: #0f766e;
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+
+    pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+    }
+
+    /* Key Callout Box */
+    .callout {
+      border-left: 4px solid var(--primary);
+      background: #f0fdfa;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin: 18px 0;
+      font-size: 13px;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: #0f766e;
+      margin-bottom: 4px;
+    }
+
+    .page-break {
+      page-break-before: always;
+      break-before: page;
+    }
+
+    /* Print Stylesheet */
+    @media print {
+      body {
+        background: #ffffff;
+      }
+      .report-container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+      }
+      .action-bar {
+        display: none !important;
+      }
+      h2 {
+        margin-top: 26px;
+      }
+      pre {
+        background: #f8fafc !important;
+        color: #0f172a !important;
+        border: 1px solid #cbd5e1;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="report-container">
+    
+    <div class="action-bar">
+      <button class="btn-print" onclick="window.print()">
+        🖨️ Print / Save as PDF
+      </button>
+    </div>
+
+    <!-- Title Page / Header -->
+    <h1>FOODRESCUE: INTELLIGENT FOOD WASTE RESCUE AND REDISTRIBUTION SYSTEM</h1>
+    <div class="report-subtitle">A Concurrency-Safe Coordination Platform Powered by MongoDB 8.0, Python Flask, and React</div>
+
+    <table class="meta-table">
+      <tr>
+        <td class="meta-label">Course Title</td>
+        <td>B.Tech CSE494 – Intelligent NoSQL Databases</td>
+      </tr>
+      <tr>
+        <td class="meta-label">Degree & Branch</td>
+        <td>Bachelor of Technology in Computer Science & Engineering</td>
+      </tr>
+      <tr>
+        <td class="meta-label">Academic Year</td>
+        <td>2025 – 2026</td>
+      </tr>
+      <tr>
+        <td class="meta-label">Technology Stack</td>
+        <td>MongoDB 8.0 Community, Python 3.11, Flask, PyMongo 4.x, React 18, Vite, Tailwind CSS</td>
+      </tr>
+      <tr>
+        <td class="meta-label">Verification Suite</td>
+        <td>21 / 21 Passing Automated Unit & Integration Tests (Pytest)</td>
+      </tr>
+    </table>
+
+    <div class="callout">
+      <div class="callout-title">Executive Summary</div>
+      FoodRescue is an end-to-end full-stack intelligent NoSQL application built to eliminate commercial food waste. By connecting Food Donors (restaurants, banquet halls), Verified Shelters/NGOs, and Volunteer Couriers, the system ensures freshly prepared meals reach hungry communities within safe freshness windows. The platform enforces database-level strict <code>$jsonSchema</code> validation, compound B-tree indexing, atomic double-claim prevention, and six analytical multi-stage PyMongo aggregation pipelines.
+    </div>
+
+    <h2>1. System Architecture</h2>
+    <p>
+      FoodRescue is built as a modular 3-tier system separating presentation, business logic, and database storage:
+    </p>
+    <ul style="margin-bottom: 12px;">
+      <li><strong>Presentation Tier (React 18 + Vite)</strong>: Role-specific portals (Donor, NGO, Volunteer, Admin), interactive SVG visualizations via Recharts, split-screen sliding authentication UI, and printable official certificates.</li>
+      <li><strong>Application Tier (Python Flask + PyMongo)</strong>: Modular REST API organized with Flask Blueprints, JWT cryptographic verification, and atomic state transitions preventing race conditions.</li>
+      <li><strong>Data Tier (MongoDB 8.0)</strong>: Six production collections (<code>users</code>, <code>organizations</code>, <code>donations</code>, <code>donation_requests</code>, <code>delivery_tasks</code>, <code>volunteer_profiles</code>) guarded by <code>$jsonSchema</code> constraints and B-Tree indexes.</li>
+    </ul>
+
+    <h2>2. MongoDB Data Modeling & Collections</h2>
+    <table class="content-table">
+      <thead>
+        <tr>
+          <th>Collection</th>
+          <th>Key Attributes</th>
+          <th>Design Strategy</th>
+          <th>Primary Index</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>users</strong></td>
+          <td>name, email, passwordHash, role, phone (+91), address, isActive</td>
+          <td>Normalized Root</td>
+          <td><code>email</code> (Unique B-Tree)</td>
+        </tr>
+        <tr>
+          <td><strong>organizations</strong></td>
+          <td>userId, organizationName, organizationType, serviceArea, verificationStatus</td>
+          <td>Referenced to User</td>
+          <td><code>userId</code> (Single Field)</td>
+        </tr>
+        <tr>
+          <td><strong>donations</strong></td>
+          <td>donorId, foodName, category, quantityKg, preparedAt, availableUntil, dietaryInfo[], status</td>
+          <td>Referenced + Embedded Tags</td>
+          <td><code>status, availableUntil</code> (Compound)</td>
+        </tr>
+        <tr>
+          <td><strong>donation_requests</strong></td>
+          <td>donationId, organizationId, requestedQuantityKg, status, requestedAt</td>
+          <td>Referenced</td>
+          <td><code>donationId, status</code> (Compound)</td>
+        </tr>
+        <tr>
+          <td><strong>delivery_tasks</strong></td>
+          <td>donationId, requestId, volunteerId, status, foodQuantityKg, pointsAwarded</td>
+          <td>Referenced</td>
+          <td><code>volunteerId, status</code> (Compound)</td>
+        </tr>
+        <tr>
+          <td><strong>volunteer_profiles</strong></td>
+          <td>userId, transportType, transportCapacityKg, totalDeliveries, totalPoints, badges[]</td>
+          <td>Referenced + Embedded Badges</td>
+          <td><code>totalPoints</code> (Descending)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Architectural Decision: Referencing vs. Embedding</h3>
+    <p>
+      Core transactional entities (<code>donations</code>, <code>donation_requests</code>, and <code>delivery_tasks</code>) use <strong>Normalized Referencing</strong> with <code>ObjectId</code> pointers to prevent unbounded document growth beyond MongoDB's <strong>16 MB limit</strong> and avoid write contention during simultaneous claims. Conversely, low-cardinality attributes like <code>dietaryInfo</code> tags and volunteer achievement <code>badges</code> use <strong>Denormalized Embedding</strong> for fast single-document reads.
+    </p>
+
+    <h2>3. Concurrency Safety & Double-Claim Prevention</h2>
+    <p>
+      To prevent race conditions where two couriers accept the same delivery task simultaneously, FoodRescue executes atomic <code>find_one_and_update</code> operations directly within MongoDB's engine:
+    </p>
+    <pre><code># Atomic Concurrency-Safe Courier Task Assignment
+updated_task = db.delivery_tasks.find_one_and_update(
+    {
+        "_id": ObjectId(task_id),
+        "status": "pending_assignment",
+        "volunteerId": None  # Task must be unassigned
+    },
+    {
+        "$set": {"status": "accepted", "volunteerId": current_user["_id"]}
+    },
+    return_document=ReturnDocument.AFTER
+)
+
+if not updated_task:
+    return jsonify({"error": "Task was already claimed by another volunteer"}), 409</code></pre>
+
+    <div class="page-break"></div>
+
+    <h2>4. Advanced MongoDB Aggregation Pipelines</h2>
+    <p>Six server-side PyMongo aggregation pipelines power the live analytics and dashboards:</p>
+
+    <table class="content-table">
+      <thead>
+        <tr>
+          <th>Pipeline</th>
+          <th>Key Stages</th>
+          <th>Analytical Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Pipeline 1: Rescued Trend</strong></td>
+          <td><code>$match, $project ($dateToString), $group, $sort</code></td>
+          <td>Historical timeline of verified food rescued (Kg) grouped by date.</td>
+        </tr>
+        <tr>
+          <td><strong>Pipeline 2: Top Donors</strong></td>
+          <td><code>$match, $group, $lookup, $unwind, $sort</code></td>
+          <td>Total food kilograms contributed per commercial establishment.</td>
+        </tr>
+        <tr>
+          <td><strong>Pipeline 3: Volunteer Leaderboard</strong></td>
+          <td><code>$lookup, $unwind, $sort (totalPoints: -1), $limit</code></td>
+          <td>Courier rankings based on verified completed rescue missions.</td>
+        </tr>
+        <tr>
+          <td><strong>Pipeline 4: Delivered by Courier</strong></td>
+          <td><code>$match, $group, $lookup, $unwind, $project</code></td>
+          <td>Cross-verifies volunteer statistics directly from completed tasks.</td>
+        </tr>
+        <tr>
+          <td><strong>Pipeline 5: Category & Status</strong></td>
+          <td><code>$group (multi-key), $project, $sort</code></td>
+          <td>Matrix breakdown of food categories vs current lifecycle state.</td>
+        </tr>
+        <tr>
+          <td><strong>Pipeline 6: NGO Fulfillment</strong></td>
+          <td><code>$group, $lookup, $unwind, $project ($cond, $divide)</code></td>
+          <td>Calculates percentage of shelter requests successfully fulfilled.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Sample Pipeline Code: Pipeline 2 (Top Donors via $lookup)</h3>
+    <pre><code>pipeline = [
+    {"$match": {"status": {"$nin": ["cancelled"]}}},
+    {"$group": {
+        "_id": "$donorId",
+        "totalDonatedKg": {"$sum": "$quantityKg"},
+        "donationsCount": {"$sum": 1},
+        "completedRescues": {"$sum": {"$cond": [{"$eq": ["$status", "delivered"]}, 1, 0]}}
+    }},
+    {"$lookup": {"from": "users", "localField": "_id", "foreignField": "_id", "as": "donor"}},
+    {"$unwind": "$donor"},
+    {"$project": {
+        "_id": 0, "donorId": {"$toString": "$_id"}, "donorName": "$donor.name",
+        "totalDonatedKg": {"$round": ["$totalDonatedKg", 2]},
+        "donationsCount": 1, "completedRescues": 1
+    }},
+    {"$sort": {"totalDonatedKg": -1}}
+]</code></pre>
+
+    <h2>5. Automated Test Suite Results</h2>
+    <p>
+      The complete Pytest automated test suite validates all database constraints, API endpoints, and concurrency mechanics with <strong>100% pass rate</strong>:
+    </p>
+    <pre><code>============================== test session starts ==============================
+platform darwin -- Python 3.14.5, pytest-9.1.1
+collected 21 items
+
+backend/tests/test_aggregations.py::test_pipeline_1_rescued_food_trend PASSED      [  4%]
+backend/tests/test_aggregations.py::test_pipeline_2_food_donated_by_donor PASSED   [  9%]
+backend/tests/test_aggregations.py::test_pipeline_3_top_volunteers PASSED          [ 14%]
+backend/tests/test_aggregations.py::test_pipeline_4_volunteer_delivery_stats PASSED[ 19%]
+backend/tests/test_aggregations.py::test_pipeline_5_category_and_status_breakdown PASSED [ 23%]
+backend/tests/test_aggregations.py::test_pipeline_6_ngo_fulfillment_stats PASSED   [ 28%]
+backend/tests/test_aggregations.py::test_platform_summary_kpis PASSED              [ 33%]
+backend/tests/test_aggregations.py::test_certificate_eligibility PASSED            [ 38%]
+backend/tests/test_concurrency_and_workflow.py::test_complete_rescue_workflow_end_to_end PASSED [ 42%]
+backend/tests/test_concurrency_and_workflow.py::test_prevent_duplicate_claims_on_same_donation PASSED [ 47%]
+backend/tests/test_concurrency_and_workflow.py::test_prevent_duplicate_task_acceptance PASSED [ 52%]
+backend/tests/test_crud_and_auth.py::test_donor_creates_donation_successfully PASSED [ 57%]
+backend/tests/test_crud_and_auth.py::test_get_available_donations PASSED           [ 61%]
+backend/tests/test_crud_and_auth.py::test_update_donation_success_and_auth_check PASSED [ 66%]
+backend/tests/test_crud_and_auth.py::test_cancel_donation PASSED                   [ 71%]
+backend/tests/test_crud_and_auth.py::test_cannot_cancel_already_delivered_donation PASSED [ 76%]
+backend/tests/test_validation.py::test_mongodb_json_schema_rejects_negative_quantity PASSED [ 80%]
+backend/tests/test_validation.py::test_mongodb_json_schema_rejects_invalid_status_enum PASSED [ 85%]
+backend/tests/test_validation.py::test_api_validation_rejects_missing_fields PASSED [ 90%]
+backend/tests/test_validation.py::test_api_validation_rejects_zero_or_negative_quantity PASSED [ 95%]
+backend/tests/test_validation.py::test_api_validation_rejects_invalid_category PASSED [100%]
+
+============================== 21 passed in 0.29s ==============================</code></pre>
+
+    <h2>6. Conclusion</h2>
+    <p>
+      The <strong>FoodRescue</strong> system fulfills all theoretical and practical objectives of the <strong>B.Tech CSE494 – Intelligent NoSQL Databases</strong> course. The project proves that leveraging MongoDB 8.0's flexible schema paradigm paired with strict database-level validation, atomic state concurrency controls, and server-side aggregation pipelines creates a robust, scalable, real-world humanitarian application.
+    </p>
+
+  </div>
+
+</body>
+</html>
